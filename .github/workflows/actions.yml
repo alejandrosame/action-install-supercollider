@@ -14,11 +14,11 @@ jobs:
             - name: Install audio utilities
               run: |
                 sudo apt -y install pulseaudio jackd2 alsa-utils dbus-x11
+                # Required for Python tests
                 sudo apt -y install libportaudio2
                 python -m pip install sounddevice
 
             - name: Audio interfaces
               run: |
                 aplay -l
-                python -v
-                python -m sounddevice
+                python -c "import sounddevice as sd; print(sd.query_devices())"
