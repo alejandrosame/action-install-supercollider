@@ -8,7 +8,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Install ALSA
+              run: sudo apt -y install alsa
+
             - name: Audio interfaces
               run: |
-                sudo apt -y install alsa
                 aplay -l
