@@ -10,5 +10,5 @@ jobs:
         steps:
             - name: Audio interfaces
               run: |
-                apt install alsa
+                sudo apt -y install alsa
                 aplay -l
