@@ -22,6 +22,6 @@ jobs:
 
             - name: Audio interfaces
               run: |
-                modinfo soundcore
+                modprobe snd-dummy
                 aplay -l
                 python -c "import sounddevice as sd; print(sd.query_devices())"
