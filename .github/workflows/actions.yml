@@ -1,5 +1,7 @@
 # References:
 # - https://stackoverflow.com/questions/40061291/linux-without-hardware-soundcard-capture-audio-playback-and-record-it-to-fil
+# - https://alsa-project.org/wiki/Matrix:Module-dummy
+# - https://newbedev.com/how-to-create-a-dummy-sound-card-device-in-linux-server
 
 name: check-audio
 
@@ -20,5 +22,6 @@ jobs:
 
             - name: Audio interfaces
               run: |
+                modinfo soundcore
                 aplay -l
                 python -c "import sounddevice as sd; print(sd.query_devices())"
