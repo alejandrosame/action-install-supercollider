@@ -1,3 +1,6 @@
+# References:
+# - https://stackoverflow.com/questions/40061291/linux-without-hardware-soundcard-capture-audio-playback-and-record-it-to-fil
+
 name: check-audio
 
 on:
@@ -8,9 +11,10 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Install ALSA
-              run: sudo apt -y install alsa
+            - name: Install audio utilities
+              run: sudo apt -y install pulseaudio jackd2 alsa-utils dbus-x11
 
             - name: Audio interfaces
               run: |
                 aplay -l
+                python3 -m sounddevice
