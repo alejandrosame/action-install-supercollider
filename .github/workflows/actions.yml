@@ -1,0 +1,13 @@
+name: check-audio
+
+on:
+    - push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Audio interfaces
+              run: |
+                aplay -l
